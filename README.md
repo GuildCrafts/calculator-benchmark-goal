@@ -57,8 +57,9 @@ In stage 1 you will only be using `HTML` and `CSS` to build a clone of the OS X 
 - [ ] Your `HTML` and `CSS` should follow this [style guide](https://google.github.io/styleguide/htmlcssguide.xml)
 - [ ] The calculator should be positioned in the center of the page. Both vertically and horizontally
 - [ ] If the window is too small for the calculator the page should scroll
-- [ ] Each button should have a CSS transition to slightly change the background color on hover over 500ms
-- [ ] Each button should have a CSS transition to slightly change the background color on click over 500ms
+- [ ] Each button should have a CSS transition to slightly change the background color on hover over 100ms
+- [ ] Each button should have a CSS transition to slightly change the background color on click over 100ms
+- [ ] All class names re: the calculator should be namespaced under `.calculator-…`
 
 
 
@@ -92,7 +93,8 @@ In stage 2 you will be adding `JavaScript` to make the calculator work.
 - [ ] Typing a number at any point should be reflected by the calculator
 - [ ] The state of the calculator should not be stored in the `DOM`
 - [ ] The mathematical operations for your calculator should each be a function outside of any click handler
-
+- [ ] Then a keyboard key is pressed the corresponding button on the calculator should flash active
+- [ ] When the length of the number displayed exceeds the width available, the font-size should deterministically drop
 
 
 ### Stage 3
