@@ -109,6 +109,7 @@ In stage 3 you are going to add a second calculator to the page. Both calculator
 - Event delegation
 - JavaScript Constructors
 - Componentization
+- Composition
 
 ##### During this phase you should…
 
@@ -117,7 +118,7 @@ In stage 3 you are going to add a second calculator to the page. Both calculator
 ##### Specs
 
 - [ ] Each calculator should act independently.
-- [ ] Clicking anyone on a calculator focuses that calculator.
+- [ ] Clicking anywhere on a calculator focuses that calculator.
 - [ ] Typing a relevant key should affect the focused calculator.
 - [ ] Use event delegation to avoid binding a `click` event listener to each button
 - [ ] The focused calculator should be `opacity: 1`
