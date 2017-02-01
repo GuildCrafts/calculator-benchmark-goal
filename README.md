@@ -131,6 +131,13 @@ In stage 4 you are going to move the work of your calculator to the server. This
 - rendering JSON from express
 - Following the RESTful routes convention
 
+##### During this phase you should…
+
+- initialize a node `package.json`
+- use `express`, a JSON body parser
+- NOT use any other node packages
+
+
 ##### Specs
 
 - [ ] Each mathimatical operation should be done on the server
