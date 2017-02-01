@@ -102,6 +102,8 @@ In stage 2 you will be adding `JavaScript` to make the calculator work.
 In stage 3 you are going to add a second calculator to the page. Both calculators will be exactly the same but work independently. This will likely require you to refactor some of the JavaScript you wrote in stage 2.
 
 
+![Two Calculators](./two-calculators-in-browser.png)
+
 ##### In this stage you will be using the following skills:
 
 - Event delegation
