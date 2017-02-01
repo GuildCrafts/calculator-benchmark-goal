@@ -18,6 +18,8 @@ The specs for this goal are far too numerous to complete within a week. Do not e
 
 This goal has 5 linear stages. You must complete the specs of each stage before progressing onto the next. The number of stages you complete will be the result of your self assessment, so keep track of how far you get, and aim to get farther next time.
 
+**IMPORTANT:** When you complete a stage, before moving onto the next stage, tag the commit that completes stage N as `stage-N-complete` using [`git tag`](https://git-scm.com/book/en/v2/Git-Basics-Tagging). *Don't forget to push with `--tags`*.
+
 
 ### Stage 1
 
@@ -25,11 +27,11 @@ In stage 1 you will only be using `HTML` and `CSS` to build a clone of the OS X 
 
 ![calculator](./calculator-in-browser.png)
 
-##### In this stage you will be using the following skills:
+##### In this stage you will be using at least the following skills:
 
 - HTML/CSS positioning
 - CSS text/type styling
-- Web/Icon Fonts
+- Web Fonts
 - Proper HTML formatting
 - Proper CSS formatting
 - Proper DOM positioning of assets
@@ -51,13 +53,13 @@ In stage 1 you will only be using `HTML` and `CSS` to build a clone of the OS X 
 
 ##### Specs
 
-- [ ] All text should be in the [Roboto](https://fonts.google.com/specimen/Roboto) web font
-- [ ] Your `HTML` and `CSS` should follow this [style guide](https://google.github.io/styleguide/htmlcssguide.xml)
-- [ ] The calculator should be positioned in the center of the page, both vertically and horizontally
-- [ ] If the window is too small for the calculator, the page should scroll
-- [ ] Each button should have a CSS transition to slightly change the background color on hover over 100ms
-- [ ] Each button should have a CSS transition to slightly change the background color on click over 100ms
-- [ ] All class names re: the calculator should be name-spaced under `.calculator-…`
+- [ ] All text is in the [Roboto](https://fonts.google.com/specimen/Roboto) web font
+- [ ] Your `HTML` and `CSS` follows this [style guide](https://google.github.io/styleguide/htmlcssguide.xml)
+- [ ] The calculator is positioned in the center of the page, both vertically and horizontally
+- [ ] If the window is too small for the calculator, the page scrolls
+- [ ] Each button has a CSS transition to slightly darken the background color on hover over 100ms
+- [ ] Each button has a CSS transition to slightly darken the background color on click over 100ms
+- [ ] All class names re: the calculator are name-spaced under `.calculator-…`
 - [ ] Your stylesheet contains little to no duplicate style declarations
 
 
@@ -66,7 +68,7 @@ In stage 1 you will only be using `HTML` and `CSS` to build a clone of the OS X 
 
 In stage 2 you will be adding `JavaScript` to make the calculator work.
 
-##### In this stage you will be using the following skills:
+##### In this stage you will be using at least the following skills:
 
 - ES5 syntax
 - Registering event listeners
@@ -87,14 +89,14 @@ In stage 2 you will be adding `JavaScript` to make the calculator work.
 
 ##### Specs
 
-- [ ] Your `JavaScript` must be written in `ES5`
-- [ ] Your `JavaScript` should follow this [style guide](https://google.github.io/styleguide/jsguide.html)
-- [ ] The Calculator display should not be an `<input>`
-- [ ] Typing a relevant key at any point should be reflected by the calculator
-- [ ] Typing a relevant key should cause the corresponding button on the calculator to appear to have been pressed. AKA flash active.
-- [ ] The state of the calculator should not be stored in the `DOM`
-- [ ] The mathematical operations for your calculator should each be a function outside of any click handler
-- [ ] When the length of the number displayed exceeds the width available, the font-size should deterministically drop
+- [ ] Your `JavaScript` is written in `ES5`
+- [ ] Your `JavaScript` follows this [style guide](https://google.github.io/styleguide/jsguide.html)
+- [ ] The Calculator display is not an `<input>`
+- [ ] Typing a relevant key at any point is reflected by the calculator
+- [ ] Typing a relevant key causes the corresponding button on the calculator to appear to have been pressed. AKA flashes active
+- [ ] The state of the calculator is not be stored in the `DOM`
+- [ ] The mathematical operations for your calculator are each their own .function, and are defined outside of any click handler
+- [ ] When the length of the number displayed exceeds the width available, the font-size deterministically drops
 
 
 ### Stage 3
@@ -104,7 +106,7 @@ In stage 3 you are going to add a second calculator to the page. Both calculator
 
 ![Two Calculators](./two-calculators-in-browser.png)
 
-##### In this stage you will be using the following skills:
+##### In this stage you will be using at least the following skills:
 
 - Event delegation
 - JavaScript Constructors
@@ -130,7 +132,7 @@ In stage 3 you are going to add a second calculator to the page. Both calculator
 In stage 4 you are going to move the work of your calculator to the server. This might seem silly but its a good way to practice moving logic from the browser to the server without the logic itself being too complex.
 
 
-##### In this stage you will be using the following skills:
+##### In this stage you will be using at least the following skills:
 
 - Setting up a simple Node express server
 - XHR / AJAX requests
@@ -150,10 +152,10 @@ In stage 4 you are going to move the work of your calculator to the server. This
 
 ##### Specs
 
-- [ ] Each mathematical operation should be done on the server
-- [ ] Each request for an operation should be a post request
-- [ ] Each operation request should respond with `JSON`
-- [ ] The calculator should ignore input while waiting for an operation to complete
+- [ ] Each mathematical operation is done on the server
+- [ ] Each request for a mathematical operation is a `post` request
+- [ ] Each operation request responds with `JSON`
+- [ ] When the calculator is waiting for an operation to complete, it ignored all input
 
 
 
