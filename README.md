@@ -21,7 +21,7 @@ This goal has 5 linear stages. You must complete the specs of each stage before 
 
 ### Stage 1
 
-In stage 1 you will only be using `HTML` and `CSS` to build a clone of the OS X calculator interface. You'll only building the interface in this stage. You'll make the calculator work in stage 2.
+In stage 1 you will only be using `HTML` and `CSS` to build a clone of the OS X calculator interface. You're only building the interface in this stage. You'll make the calculator work in stage 2.
 
 ![calculator](./calculator-in-browser.png)
 
@@ -46,6 +46,8 @@ In stage 1 you will only be using `HTML` and `CSS` to build a clone of the OS X 
 - NOT use any JavaScript
 - NOT use an express server
 - NOT use images
+- NOT use `<form>` tags
+- NOT use `<input>` tags
 
 ##### Specs
 
@@ -55,7 +57,8 @@ In stage 1 you will only be using `HTML` and `CSS` to build a clone of the OS X 
 - [ ] If the window is too small for the calculator, the page should scroll
 - [ ] Each button should have a CSS transition to slightly change the background color on hover over 100ms
 - [ ] Each button should have a CSS transition to slightly change the background color on click over 100ms
-- [ ] All class names re: the calculator should be namespaced under `.calculator-…`
+- [ ] All class names re: the calculator should be name-spaced under `.calculator-…`
+- [ ] Your stylesheet contains little to no duplicate style declarations
 
 
 
@@ -75,6 +78,7 @@ In stage 2 you will be adding `JavaScript` to make the calculator work.
 - Event bubbling
 - Querying the DOM API
 - Manipulating the DOM using the DOM API
+- Avoiding using the DOM for state
 
 
 ##### During this phase you should…
@@ -86,22 +90,23 @@ In stage 2 you will be adding `JavaScript` to make the calculator work.
 - [ ] Your `JavaScript` must be written in `ES5`
 - [ ] Your `JavaScript` should follow this [style guide](https://google.github.io/styleguide/jsguide.html)
 - [ ] The Calculator display should not be an `<input>`
-- [ ] Typing a number at any point should be reflected by the calculator
+- [ ] Typing a relevant key at any point should be reflected by the calculator
+- [ ] Typing a relevant key should cause the corresponding button on the calculator to appear to have been pressed. AKA flash active.
 - [ ] The state of the calculator should not be stored in the `DOM`
 - [ ] The mathematical operations for your calculator should each be a function outside of any click handler
-- [ ] Then a keyboard key is pressed the corresponding button on the calculator should flash active
 - [ ] When the length of the number displayed exceeds the width available, the font-size should deterministically drop
 
 
 ### Stage 3
 
-In stage 3 you are going to have two calculators on the page. You'll have to find the places in your code that are not componentized so two calculators can operate at the same time with independent state.
+In stage 3 you are going to add a second calculator to the page. Both calculators will be exactly the same but work independently. This will likely require you to refactor some of the JavaScript you wrote in stage 2.
 
 
 ##### In this stage you will be using the following skills:
 
 - Event delegation
 - JavaScript Constructors
+- Componentization
 
 ##### During this phase you should…
 
@@ -109,9 +114,12 @@ In stage 3 you are going to have two calculators on the page. You'll have to fin
 
 ##### Specs
 
-- [ ] Use event delegation to avoid binding `onClick` handlers to each button
-- [ ] Use event delegation to know which calculator a number key press is intended for
-- [ ] The focused calculator should be highlighted in some way
+- [ ] Each calculator should act independently.
+- [ ] Clicking anyone on a calculator focuses that calculator.
+- [ ] Typing a relevant key should affect the focused calculator.
+- [ ] Use event delegation to avoid binding a `click` event listener to each button
+- [ ] The focused calculator should be `opacity: 1`
+- [ ] The not-focused calculator should be `opacity: 0.5`
 
 
 ### Stage 4
