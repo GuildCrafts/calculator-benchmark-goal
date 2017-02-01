@@ -80,10 +80,16 @@
   color: rgb(93, 93, 93);
 }
 
-.calculator-primary-button:focus{
 
+.calculator-numeral{
+  background-color: rgb(220, 220, 220);
 }
-
+.calculator-numeral:hover{
+  background-color: rgb(200,200,200);
+}
+.calculator-numeral:active{
+  background-color: rgb(169, 169, 169);
+}
 
 
 .calculator-zero{
