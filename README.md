@@ -6,10 +6,10 @@
 - Start from scratch
 - Do as much as you can
 - Do not use any unmentioned frameworks
-- Don't look at other solutions to this goal
+- Do not look at other solutions to this goal
 - Understand and write every line of code
 - Ask for coaching sessions
-- Do not let coached write code for you
+- Do not let coaches write code for you
 - Get frequent code reviews
 - Never copy and paste code from the Internet. Always type it out.
 
@@ -17,9 +17,9 @@
 
 ## Specs
 
-The specs for this goal are far too numerous to complete within a week. Do not expect to get everything done but try to get as much done as you can.
+The specs for this goal are far too numerous to complete within a week. Do not expect to get everything done, but try to get as much done as you can.
 
-The amount of specs you complete will be your the result of this self assessment. So keep track of how far you got and aim to get farther next time.
+The number of specs you complete will be the result of this self assessment, so keep track of how far you get, and aim to get farther next time.
 
 
 This goal has X distinct stages.
@@ -32,12 +32,12 @@ In stage 1 you will only be using `HTML` and `CSS` to build a clone of the OS X 
 
 ##### In this stage you will be using the following skills:
 
-- html/CSS positioning
+- HTML/CSS positioning
 - CSS text/type styling
 - Web/Icon Fonts
 - Proper HTML formatting
 - Proper CSS formatting
-- Proper DOM position of assets
+- Proper DOM positioning of assets
 - Positioning with `inline`, `block` and `inline-block`
 - CSS pseudo-selectors
 - CSS transitions
@@ -55,8 +55,8 @@ In stage 1 you will only be using `HTML` and `CSS` to build a clone of the OS X 
 
 - [ ] All text should be in the [Roboto](https://fonts.google.com/specimen/Roboto) web font
 - [ ] Your `HTML` and `CSS` should follow this [style guide](https://google.github.io/styleguide/htmlcssguide.xml)
-- [ ] The calculator should be positioned in the center of the page. Both vertically and horizontally
-- [ ] If the window is too small for the calculator the page should scroll
+- [ ] The calculator should be positioned in the center of the page, both vertically and horizontally
+- [ ] If the window is too small for the calculator, the page should scroll
 - [ ] Each button should have a CSS transition to slightly change the background color on hover over 500ms
 - [ ] Each button should have a CSS transition to slightly change the background color on click over 500ms
 
@@ -97,7 +97,7 @@ In stage 2 you will be adding `JavaScript` to make the calculator work.
 
 ### Stage 3
 
-In stage 3 you are going to have two calculators on the page. You'll have to find the places in your code that are not componentized so two calculators can operate at the same time with intendant state.
+In stage 3 you are going to have two calculators on the page. You'll have to find the places in your code that are not componentized so two calculators can operate at the same time with independent state.
 
 
 ##### In this stage you will be using the following skills:
@@ -113,7 +113,7 @@ In stage 3 you are going to have two calculators on the page. You'll have to fin
 
 - [ ] Use event delegation to avoid binding `onClick` handlers to each button
 - [ ] Use event delegation to know which calculator a number key press is intended for
-- [ ] The focuses calculator should highlighted in some way
+- [ ] The focused calculator should be highlighted in some way
 
 
 ### Stage 4
@@ -140,7 +140,7 @@ In stage 4 you are going to move the work of your calculator to the server. This
 
 ##### Specs
 
-- [ ] Each mathimatical operation should be done on the server
+- [ ] Each mathematical operation should be done on the server
 - [ ] Each request for an operation should be a post request
 - [ ] Each operation request should respond with `JSON`
 - [ ] The calculator should ignore input while waiting for an operation to complete
@@ -151,8 +151,3 @@ In stage 4 you are going to move the work of your calculator to the server. This
 
 
 In stage 5 you are going to add authentication to your express server.
-
-
-
-
-
