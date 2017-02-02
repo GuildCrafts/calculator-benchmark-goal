@@ -11,6 +11,7 @@
     this.node = node;
     this.displayNode = this.node.querySelector('.calculator-display');
     this.defaultDisplayFontSize = this.getDisplayFontSize()
+    this.resizeDisplayFont = this.resizeDisplayFont.bind(this)
 
     this.node.addEventListener('click', this.onClick.bind(this));
     document.addEventListener('keydown', this.onKeyDown.bind(this));
@@ -159,19 +160,14 @@
     var displayTextNode = this.node.querySelector('.calculator-display > span');
     var fontSize = parseInt(getComputedStyle(this.displayNode)["font-size"],10)
     var delta = displayTextNode.offsetWidth - this.displayNode.offsetWidth
-
-    console.info('delta', delta)
-
     if (delta > 0){
       this.displayNode.style.fontSize = (fontSize-1)+'px'
-      console.log('display font size DOWN -> '+(fontSize-1)+'px')
-      this.resizeDisplayFontTimeout = setTimeout(this.resizeDisplayFont.bind(this))
+      this.resizeDisplayFontTimeout = setTimeout(this.resizeDisplayFont)
       return
     }
     if (fontSize < this.defaultDisplayFontSize && delta < -15){
       this.displayNode.style.fontSize = (fontSize+1)+'px'
-      console.log('display font size UP -> '+(fontSize+1)+'px')
-      this.resizeDisplayFontTimeout = setTimeout(this.resizeDisplayFont.bind(this))
+      this.resizeDisplayFontTimeout = setTimeout(this.resizeDisplayFont)
       return
     }
   }
