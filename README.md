@@ -188,16 +188,19 @@ In stage 4 you are going to move the work of your calculator to the server. This
 ### Stage 5
 
 
-In stage 5 you are going to add persistence to your express server. We're going to be persisting the history of the users calculations.
+In stage 5 you are going to add persistence to your express server. We're going to be persisting the history of the users calculations. We're also going back to just having one calculator on the page.
 
+
+![calculator with history](./calculator-with-history.png)
 
 - change the display of your calculators to output a log of results
 - persist that log per-visitor in a Postgres database
 
-
+- [ ] there is only one calculator on the page
 - [ ] the calculator displays a scrolling history of calculations
 - [ ] the most recent calculation result is at the bottom
-- [ ] the scrollback history is always scrolled to the bottom when a new operation result is added
+- [ ] the scroll-back history is always scrolled to the bottom when a new operation result is added
 - [ ] the calculator history is stored per visitor (browser)
 - [ ] the express app uses a cookie to track individual visitors
-- [ ]
+- [ ] reloading the page restores the calculator history
+- [ ] the server stores up to 100 calculation results
