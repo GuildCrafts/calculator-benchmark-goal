@@ -183,9 +183,15 @@ In stage 4 you are going to move the work of your calculator to the server. This
 ### Stage 5
 
 
-In stage 5 you are going to add authentication to your express server.
+In stage 5 you are going to add persistence to your express server. We're going to be persisting the history of the users calculations.
 
 
+- change the display of your calculators to output a log of results
+- persist that log per-visitor in a Postgres database
 
 
-
+- [ ] the calculator should display a history of calculations
+- [ ] the history should scroll
+- [ ] the calculator history should be stored per visitor (browser)
+- [ ] the express app uses a cookie to track individual visitors
+- [ ]
