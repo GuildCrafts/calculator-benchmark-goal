@@ -64,10 +64,10 @@ In stage 1 you will only be using `HTML` and `CSS` to build a clone of the OS X 
 
 - Use [normalize.css](https://necolas.github.io/normalize.css/)
 - NOT use any other css frameworks or libraries
-- NOT use tables
 - NOT use any JavaScript
 - NOT use an express server
 - NOT use images
+- NOT use `<table>` tags
 - NOT use `<form>` tags
 - NOT use `<input>` tags
 
@@ -76,7 +76,7 @@ In stage 1 you will only be using `HTML` and `CSS` to build a clone of the OS X 
 - [ ] All text is in the [Roboto](https://fonts.google.com/specimen/Roboto) web font
 - [ ] Your `HTML` and `CSS` follows this [style guide](https://google.github.io/styleguide/htmlcssguide.xml)
 - [ ] The calculator is positioned in the center of the page, both vertically and horizontally
-- [ ] If the window is too small for the calculator, the page scrolls
+- [ ] If the window is too small for the calculator, the page scrolls, both vertically and horizontally
 - [ ] Each button has a CSS transition to slightly darken the background color on hover over 100ms
 - [ ] Each button has a CSS transition to slightly darken the background color on click over 100ms
 - [ ] All class names re: the calculator are name-spaced under `.calculator-…`
@@ -111,13 +111,13 @@ In stage 2 you will be adding `JavaScript` to make the calculator work.
 
 - [ ] Your `JavaScript` is written in `ES5`
 - [ ] Your `JavaScript` follows this [style guide](https://google.github.io/styleguide/jsguide.html)
+- [ ] Your JavaScript defines 1 or less global variables
 - [ ] The Calculator display is not an `<input>`
-- [ ] Typing a relevant key at any point is reflected by the calculator
+- [ ] Typing a relevant key at any point is reflected on the calculator
 - [ ] Typing a relevant key causes the corresponding button on the calculator to appear to have been pressed. AKA flashes active
 - [ ] The state of the calculator is not be stored in the `DOM`
-- [ ] The mathematical operations for your calculator are each their own .function, and are defined outside of any click handler
+- [ ] The mathematical operations for your calculator are each their own function, and are defined outside of any DOM event handler
 - [ ] When the length of the number displayed exceeds the width available, the font-size deterministically drops
-- [ ] Your JavaScript defines 1 or less global variables
 
 
 ### Stage 3

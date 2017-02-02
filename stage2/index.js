@@ -9,6 +9,9 @@
 
   var Calculator = function(node){
     this.node = node;
+    this.displayNode = this.node.querySelector('.calculator-display');
+    this.defaultDisplayFontSize = this.getDisplayFontSize()
+
     this.node.addEventListener('click', this.onClick.bind(this));
     document.addEventListener('keydown', this.onKeyDown.bind(this));
     this.value = '';
@@ -18,6 +21,7 @@
 
   Calculator.ACTIONS = [
     'clear',
+    'delete',
     'toggle-sign',
     '%',
     '/',
@@ -47,7 +51,6 @@
   }
 
   Calculator.prototype.onClick = function(event){
-    this.focus();
     var button = closestButton(event.target);
     if (!button) return;
     if (Calculator.ACTIONS.includes(button.name)) {
@@ -60,6 +63,7 @@
     var action = event.key
     if (action === 'Enter') action = '='
     if (action === 'Clear') action = 'clear'
+    if (action === "Backspace") action = 'delete'
     if (Calculator.ACTIONS.includes(action)){
       this.simulateClick(action)
       this.takeAction(action)
@@ -76,8 +80,6 @@
   }
 
   Calculator.prototype.takeAction = function(action){
-    console.log('ACTION:', action)
-
     if (action === 'clear'){
       this.stagedValue = null;
       this.setValue('')
@@ -86,6 +88,11 @@
 
     if (action === 'toggle-sign'){
       this.setValue(Number(this.value) * -1)
+      return
+    }
+
+    if (action === 'delete'){
+      this.setValue(this.value.slice(0,-1))
       return
     }
 
@@ -131,7 +138,6 @@
   }
 
   Calculator.prototype.executeOperation = function(value){
-    console.log('executeOperation', this)
     var value = this.value ? Number(this.value) : this.stagedValue
     value = Calculator.OPERATIONS[this.operation](this.stagedValue, value)
     this.stagedValue = null
@@ -140,7 +146,34 @@
 
   Calculator.prototype.setDisplay = function(){
     var value = this.value || this.stagedValue || 0;
-    this.node.querySelector('.calculator-display').innerText = value;
+    this.node.querySelector('.calculator-display > span').innerText = value;
+    this.resizeDisplayFont()
+  }
+
+  Calculator.prototype.getDisplayFontSize = function(){
+    return parseInt(getComputedStyle(this.displayNode)["font-size"],10);
+  }
+
+  Calculator.prototype.resizeDisplayFont = function(){
+    clearTimeout(this.resizeDisplayFontTimeout)
+    var displayTextNode = this.node.querySelector('.calculator-display > span');
+    var fontSize = parseInt(getComputedStyle(this.displayNode)["font-size"],10)
+    var delta = displayTextNode.offsetWidth - this.displayNode.offsetWidth
+
+    console.info('delta', delta)
+
+    if (delta > 0){
+      this.displayNode.style.fontSize = (fontSize-1)+'px'
+      console.log('display font size DOWN -> '+(fontSize-1)+'px')
+      this.resizeDisplayFontTimeout = setTimeout(this.resizeDisplayFont.bind(this))
+      return
+    }
+    if (fontSize < this.defaultDisplayFontSize && delta < -15){
+      this.displayNode.style.fontSize = (fontSize+1)+'px'
+      console.log('display font size UP -> '+(fontSize+1)+'px')
+      this.resizeDisplayFontTimeout = setTimeout(this.resizeDisplayFont.bind(this))
+      return
+    }
   }
 
   var onDOMReady = function(){
