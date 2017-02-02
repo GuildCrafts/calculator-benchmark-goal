@@ -46,6 +46,19 @@
     '+': function(a,b){ return a + b; },
   }
 
+  Calculator.prototype.isFocused = function(){
+    return this.node.classList.contains('calculator-focused');
+  };
+
+  Calculator.prototype.focus = function(){
+    var focusedCalculatorNodes = document.querySelectorAll('.calculator-focused');
+    [].forEach.call(focusedCalculatorNodes, function(node){
+      node.classList.remove('calculator-focused');
+    })
+    this.node.classList.add('calculator-focused');
+    this.node.querySelector('button').focus();
+  };
+
   Calculator.prototype.onClick = function(event){
     this.focus();
     var button = closestButton(event.target);
@@ -56,6 +69,7 @@
   };
 
   Calculator.prototype.onKeyDown = function(event){
+    if (!this.isFocused()) return
     if (event.key === "Enter") event.preventDefault()
     var action = event.key
     if (action === 'Enter') action = '='
@@ -144,8 +158,13 @@
   }
 
   var onDOMReady = function(){
-    var calculator = new Calculator(document.querySelector('.calculator'))
-    window.calculator = calculator; // DEBUG
+    var calculatorNodes = document.querySelectorAll('.calculator');
+    var calculators = [].map.call(calculatorNodes, function(node){
+      return new Calculator(node)
+    })
+
+    calculators[0].focus()
+    window.calculators = calculators; // DEBUG
   };
 
   document.addEventListener('DOMContentLoaded', onDOMReady, false);
