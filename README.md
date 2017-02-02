@@ -10,7 +10,7 @@ The specs of a benchmark goal are designed to cover a wide range of basic concep
 - Work on flexing problem solving skills
 - Assess how much you've learned/grown as a developer
 
-To get a proper self assessment:\
+**To get a proper self assessment**:
 
 - Do this goal solo
 - Start from scratch
