@@ -37,13 +37,13 @@
     '9',
   ]
 
-  Calculator.OPERATIONS = [
-    '%',
-    '/',
-    '*',
-    '-',
-    '+',
-  ]
+  Calculator.OPERATIONS = {
+    '%': function(a,b){ return a / b; },
+    '/': function(a,b){ return a / b; },
+    '*': function(a,b){ return a * b; },
+    '-': function(a,b){ return a - b; },
+    '+': function(a,b){ return a + b; },
+  }
 
   Calculator.prototype.isFocused = function(){
     return this.node.classList.contains('calculator-focused');
@@ -99,8 +99,11 @@
 
       return
     }
-    if (Calculator.OPERATIONS.includes(action)){
+    if (Calculator.OPERATIONS[action]){
+      this.stagedValue = Number(this.value)
+      this.setValue('')
       this.operation = action
+      return
     }
 
     if (action === '='){
@@ -134,10 +137,17 @@
 
   Calculator.prototype.setValue = function(value){
     this.value = value+''
-    this.setDisplay(this.value || 0)
+    this.setDisplay()
   }
 
-  Calculator.prototype.setDisplay = function(value){
+  Calculator.prototype.executeOperation = function(value){
+    console.log('executeOperation', this)
+    var value = Calculator.OPERATIONS[this.operation](this.stagedValue, Number(this.value))
+    this.setValue(value)
+  }
+
+  Calculator.prototype.setDisplay = function(){
+    var value = this.value || this.stagedValue || 0;
     this.node.querySelector('.calculator-display').innerText = value;
   }
 
