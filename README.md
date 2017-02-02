@@ -136,16 +136,20 @@ In stage 3 you are going to add a second calculator to the page. Both calculator
 
 ##### During this phase you should…
 
+- duplicate the HTML for the calculator
+- NOT try and render a calculator from `JavaScript`
 - NOT use `jQuery` or any other `JavaScript` libraries or frameworks
+- consider using a constructor called `Calculator`
+- NOT give each calculator a unique `id` or `classname`
 
 ##### Specs
 
-- [ ] Each calculator should act independently.
+- [ ] Each calculator acts independently.
 - [ ] Clicking anywhere on a calculator focuses that calculator.
-- [ ] Typing a relevant key should affect the focused calculator.
+- [ ] Typing a relevant key affects the focused calculator.
 - [ ] Use event delegation to avoid binding a `click` event listener to each button
-- [ ] The focused calculator should be `opacity: 1`
-- [ ] The not-focused calculator should be `opacity: 0.5`
+- [ ] The focused calculator is `opacity: 1`
+- [ ] The not-focused calculator is `opacity: 0.5`
 
 
 ### Stage 4
@@ -174,9 +178,10 @@ In stage 4 you are going to move the work of your calculator to the server. This
 ##### Specs
 
 - [ ] Each mathematical operation is done on the server
+- [ ] Each mathematical operation should have it's own API endpoint
 - [ ] Each request for a mathematical operation is a `post` request
 - [ ] Each operation request responds with `JSON`
-- [ ] When the calculator is waiting for an operation to complete, it ignored all input
+- [ ] When the calculator is waiting for an operation request response, it ignores all input
 
 
 
@@ -190,8 +195,9 @@ In stage 5 you are going to add persistence to your express server. We're going 
 - persist that log per-visitor in a Postgres database
 
 
-- [ ] the calculator should display a history of calculations
-- [ ] the history should scroll
-- [ ] the calculator history should be stored per visitor (browser)
+- [ ] the calculator displays a scrolling history of calculations
+- [ ] the most recent calculation result is at the bottom
+- [ ] the scrollback history is always scrolled to the bottom when a new operation result is added
+- [ ] the calculator history is stored per visitor (browser)
 - [ ] the express app uses a cookie to track individual visitors
 - [ ]
