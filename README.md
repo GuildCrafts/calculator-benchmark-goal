@@ -193,8 +193,21 @@ In stage 5 you are going to add persistence to your express server. We're going 
 
 ![calculator with history](./calculator-with-history.png)
 
-- change the display of your calculators to output a log of results
-- persist that log per-visitor in a Postgres database
+##### In this stage you will be using at least the following skills:
+
+- SQL schema design
+- writing SQL queries
+
+
+##### During this phase you should…
+
+- use the `pg`, `pg-promise`, and/or `knex` packages
+- NOT use any other node packages
+- create a `visitors` table
+- create a `calculations` table
+- persist each mathematical operations
+
+##### Specs
 
 - [ ] there is only one calculator on the page
 - [ ] the calculator displays a scrolling history of calculations
@@ -204,3 +217,9 @@ In stage 5 you are going to add persistence to your express server. We're going 
 - [ ] the express app uses a cookie to track individual visitors
 - [ ] reloading the page restores the calculator history
 - [ ] the server stores up to 100 calculation results
+- [ ] all mathematical operations have their own function, defined outside of any express router handlers.
+
+
+### Stage 6
+
+In stage 6 we're going to make the single calculator mobile friendly and responsive.
