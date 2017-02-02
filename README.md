@@ -1,5 +1,17 @@
 # Calculator Benchmark
 
+Benchmarks goals are projects that are designed to be done solo.
+
+The specs of a benchmark goal are designed to cover a wide range of basic concepts and get progressively more complex.
+
+**Use a Benchmark goal to**:
+- Take a break from pairing
+- Get a sense of what you can accomplish by yourself
+- Work on flexing problem solving skills
+- Assess how much you've learned/grown as a developer
+
+To get a proper self assessment:\
+
 - Do this goal solo
 - Start from scratch
 - Do as much as you can
@@ -10,6 +22,14 @@
 - Do not let coaches write code for you
 - Get frequent code reviews
 - Never copy and paste code from the Internet. Always type it out.
+
+Benchmark goals do not affect your stats.
+
+## Retrospectives, Reviews, Stats, and Team Size
+
+Even though Benchmark Goals are solo goals, the project formation algorithm will add you to it in teams of two. Once that's done, the moderator will split up the team into two single-person projects. There will be no retrospectives for these projects.
+
+For the project review, make sure to schedule a 1:1 30 minute meeting the following week with a SEP. They will go over the code with you in real time, and give you an in person completeness/quality review.
 
 
 ## Specs

@@ -12,6 +12,7 @@
     this.node.addEventListener('click', this.onClick.bind(this));
     document.addEventListener('keydown', this.onKeyDown.bind(this));
     this.value = '';
+    this.stagedValue = null;
     this.operation = null;
   }
 
@@ -92,13 +93,16 @@
     console.log('ACTION:', action)
 
     if (action === 'clear'){
+      this.stagedValue = null;
       this.setValue('')
       return
     }
-    if (action === 'toggle-sign'){
 
+    if (action === 'toggle-sign'){
+      this.setValue(Number(this.value) * -1)
       return
     }
+
     if (Calculator.OPERATIONS[action]){
       this.stagedValue = Number(this.value)
       this.setValue('')
@@ -142,7 +146,9 @@
 
   Calculator.prototype.executeOperation = function(value){
     console.log('executeOperation', this)
-    var value = Calculator.OPERATIONS[this.operation](this.stagedValue, Number(this.value))
+    var value = this.value ? Number(this.value) : this.stagedValue
+    value = Calculator.OPERATIONS[this.operation](this.stagedValue, value)
+    this.stagedValue = null
     this.setValue(value)
   }
 
