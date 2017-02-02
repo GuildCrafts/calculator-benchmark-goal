@@ -9,9 +9,9 @@
 
   var Calculator = function(node){
     this.node = node;
-    this.onClick = this.onClick.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
-    this.initialize();
+    this.node.addEventListener('click', this.onClick.bind(this));
+    document.addEventListener('keydown', this.onKeyDown.bind(this));
+    this.value = '';
   }
 
   Calculator.ACTIONS = [
@@ -36,9 +36,8 @@
     '9',
   ]
 
-  Calculator.prototype.initialize = function(){
-    this.node.addEventListener('click', this.onClick);
-    this.node.addEventListener('keydown', this.onKeyDown);
+  Calculator.prototype.isFocused = function(){
+    return this.node.classList.contains('calculator-focused');
   };
 
   Calculator.prototype.focus = function(){
@@ -60,12 +59,11 @@
   };
 
   Calculator.prototype.onKeyDown = function(event){
+    if (!this.isFocused()) return
     if (event.key === "Enter") event.preventDefault()
     var action = event.key
-    if (!Calculator.ACTIONS.includes(action)){
-      if (action === 'Enter') action = '='
-    }
-    if (action) {
+    if (action === 'Enter') action = '='
+    if (Calculator.ACTIONS.includes(action)){
       this.simulateClick(action)
       this.takeAction(action)
     }
@@ -82,7 +80,60 @@
 
   Calculator.prototype.takeAction = function(action){
     console.log('ACTION:', action)
+
+    if (action === 'clear'){
+      this.setValue('')
+      return
+    }
+    if (action === 'toggle-sign'){
+
+      return
+    }
+    if (action === '%'){
+
+      return
+    }
+    if (action === '/'){
+
+      return
+    }
+    if (action === '*'){
+
+      return
+    }
+    if (action === '-'){
+
+      return
+    }
+    if (action === '+'){
+
+      return
+    }
+    if (action === '='){
+      this.setValue(Number(this.value))
+      return
+    }
+    if (action === '.'){
+      if (this.value.toString().includes('.')) return
+      this.setValue(this.value+'.')
+      return
+    }
+    // if its a number setting action
+    if (action.length === 1 && '0123456789'.includes(action)){
+      this.setValue(this.value+''+action)
+      return
+    }
+    throw new Error('unknown action "'+action+'"')
   };
+
+  Calculator.prototype.setValue = function(value){
+    this.value = value+''
+    this.setDisplay(this.value || 0)
+  }
+
+  Calculator.prototype.setDisplay = function(value){
+    this.node.querySelector('.calculator-display').innerText = value;
+  }
 
   var onDOMReady = function(){
     var calculatorNodes = document.querySelectorAll('.calculator');
