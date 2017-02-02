@@ -12,6 +12,7 @@
     this.node.addEventListener('click', this.onClick.bind(this));
     document.addEventListener('keydown', this.onKeyDown.bind(this));
     this.value = '';
+    this.operation = null;
   }
 
   Calculator.ACTIONS = [
@@ -34,6 +35,14 @@
     '7',
     '8',
     '9',
+  ]
+
+  Calculator.OPERATIONS = [
+    '%',
+    '/',
+    '*',
+    '-',
+    '+',
   ]
 
   Calculator.prototype.isFocused = function(){
@@ -63,6 +72,7 @@
     if (event.key === "Enter") event.preventDefault()
     var action = event.key
     if (action === 'Enter') action = '='
+    if (action === 'Clear') action = 'clear'
     if (Calculator.ACTIONS.includes(action)){
       this.simulateClick(action)
       this.takeAction(action)
@@ -89,37 +99,33 @@
 
       return
     }
-    if (action === '%'){
-
-      return
+    if (Calculator.OPERATIONS.includes(action)){
+      this.operation = action
     }
-    if (action === '/'){
 
-      return
-    }
-    if (action === '*'){
-
-      return
-    }
-    if (action === '-'){
-
-      return
-    }
-    if (action === '+'){
-
-      return
-    }
     if (action === '='){
-      this.setValue(Number(this.value))
+      if (this.operation){
+        this.executeOperation()
+      }else{
+        this.setValue(Number(this.value))
+      }
       return
     }
+
     if (action === '.'){
       if (this.value.toString().includes('.')) return
       this.setValue(this.value+'.')
       return
     }
+
+    if (action === '0'){
+      if (this.value.length === 0 || this.value.startsWith(0)) return
+      this.setValue(this.value+'0')
+      return
+    }
+
     // if its a number setting action
-    if (action.length === 1 && '0123456789'.includes(action)){
+    if (action.length === 1 && '123456789'.includes(action)){
       this.setValue(this.value+''+action)
       return
     }
