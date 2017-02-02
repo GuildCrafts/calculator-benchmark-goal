@@ -97,6 +97,7 @@ In stage 2 you will be adding `JavaScript` to make the calculator work.
 - [ ] The state of the calculator is not be stored in the `DOM`
 - [ ] The mathematical operations for your calculator are each their own .function, and are defined outside of any click handler
 - [ ] When the length of the number displayed exceeds the width available, the font-size deterministically drops
+- [ ] Your JavaScript defines 1 or less global variables
 
 
 ### Stage 3
